@@ -17,3 +17,5 @@ function ProjectsController($scope) {
     $scope.newTask = {};
   };
 }
+
+ProjectsController.$inject = ['$scope'];
