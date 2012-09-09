@@ -2,13 +2,13 @@
 <html ng-app>
   <head>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
   </head>
   <body>
-    <section>
+    <section ng-controller="ProjectsController">
       <h1>Projects</h1>
       <ul>
-        <li>Buy car</li>
-        <li>Clean house</li>
+        <li ng-repeat="project in projects">{{ project.name }}</li>
       </ul>
     </section>
   </body>
