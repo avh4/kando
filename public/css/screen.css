@@ -67,12 +67,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 11, ../../sass/screen.scss */
+/* line 10, ../../sass/screen.scss */
+section {
+  width: 50%;
+  float: left;
+}
+/* line 13, ../../sass/screen.scss */
 section ul {
   border: 1px solid grey;
-  min-height: 500px;
+  min-height: 300px;
 }
-/* line 14, ../../sass/screen.scss */
+/* line 16, ../../sass/screen.scss */
 section ul li {
   background: #7baacc;
   border: 1px solid #3f78a2;

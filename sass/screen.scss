@@ -8,9 +8,11 @@
 $projectColor: hsl(205, 44%, 64%);
 
 section { 
+  width: 50%;
+  float: left;
   ul {
     border: 1px solid grey;
-    min-height: 500px;
+    min-height: 300px;
     li {
       background: $projectColor;
       border: 1px solid adjust-lightness($projectColor, -20);

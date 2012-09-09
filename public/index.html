@@ -12,7 +12,7 @@
     <script src="js/test/unit/controllersSpec.js"></script>
   </head>
   <body>
-    <section ng-controller="ProjectsController">
+    <section id="projects" ng-controller="ProjectsController">
       <h1>Projects</h1>
       <form>
         <input type="text" ng-model="newProject.name" autofocus="true"/>
@@ -20,6 +20,17 @@
       </form>
       <ul>
         <li ng-repeat="project in projects">{{ project.name }}</li>
+      </ul>
+    </section>
+    <section id="tasks">
+      <h1>Tasks for <strong>Project</strong></h1>
+      <form>
+        <input type="text" ng-model="newTask.name"/>
+        <button ng-click="add()">Add</button>
+      </form>
+      <ul>
+        <li>Call Mom</li>
+        <li>Return the keys</li>
       </ul>
     </section>
   </body>
