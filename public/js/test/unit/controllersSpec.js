@@ -14,7 +14,7 @@ describe('ProjectsController', function(){
   describe('adding a project', function() {
     beforeEach(function() {
       scope.newProject = {"name": "Learn to draw"};
-      scope.add();
+      scope.addProject();
     });
 
     it('should add the project to the project list', function() {
@@ -27,6 +27,21 @@ describe('ProjectsController', function(){
 
     it('should reset the add form', function() {
       expect(scope.newProject.name).toBeUndefined();
+    });
+
+    it('should show the project detail for the new project', function() {
+      expect(scope.selectedProject.name).toBe("Learn to draw");
+    })
+  });
+
+  describe('selecting a project', function() {
+    beforeEach(function() {
+      scope.projects = [{"name": "Go hunting" }, {"name": "Kiss in the rain"}];
+      scope.showProjectDetail(projects[0]);
+    });
+
+    it('should show the project detail for the selected project', function() {
+      expect(scope.selectedProject).toBe(projects[0]);
     });
   });
 });

@@ -1,8 +1,14 @@
 function ProjectsController($scope) {
   $scope.projects = [];
 
-  $scope.add = function() {
-    $scope.projects.push({ "name": $scope.newProject.name });
+  $scope.addProject = function() {
+    var project = { "name": $scope.newProject.name };
+    $scope.projects.push(project);
     $scope.newProject = {};
-  }
+    $scope.showProjectDetail(project);
+  };
+
+  $scope.showProjectDetail = function(project) {
+    $scope.selectedProject = project;
+  };
 }

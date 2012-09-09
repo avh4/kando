@@ -11,26 +11,25 @@
     <script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
     <script src="js/test/unit/controllersSpec.js"></script>
   </head>
-  <body>
-    <section id="projects" ng-controller="ProjectsController">
+  <body ng-controller="ProjectsController">
+    <section id="projects">
       <h1>Projects</h1>
       <form>
         <input type="text" ng-model="newProject.name" autofocus="true"/>
-        <button ng-click="add()">Add</button>
+        <button ng-click="addProject()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="project in projects">{{ project.name }}</li>
+        <li ng-repeat="project in projects" ng-click="loadProjectDetail(project)">{{ project.name }}</li>
       </ul>
     </section>
     <section id="tasks">
-      <h1>Tasks for <strong>Project</strong></h1>
+      <h1>Tasks for <strong>{{ selectedProject.name }}</strong></h1>
       <form>
         <input type="text" ng-model="newTask.name"/>
-        <button ng-click="add()">Add</button>
+        <button ng-click="addTask()">Add</button>
       </form>
       <ul>
-        <li>Call Mom</li>
-        <li>Return the keys</li>
+        <li ng-repeat="task in selectedProject.tasks">{{ task.description }}</li>
       </ul>
     </section>
   </body>
