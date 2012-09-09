@@ -19,13 +19,13 @@
         <button ng-click="addProject()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="project in projects" ng-click="loadProjectDetail(project)">{{ project.name }}</li>
+        <li ng-repeat="project in projects" ng-click="showProjectDetail(project)">{{ project.name }}</li>
       </ul>
     </section>
     <section id="tasks">
       <h1>Tasks for <strong>{{ selectedProject.name }}</strong></h1>
       <form>
-        <input type="text" ng-model="newTask.name"/>
+        <input type="text" ng-model="newTask.description"/>
         <button ng-click="addTask()">Add</button>
       </form>
       <ul>
