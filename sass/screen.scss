@@ -1,0 +1,22 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+$projectColor: hsl(205, 44%, 64%);
+
+section { 
+  ul {
+    border: 1px solid grey;
+    min-height: 500px;
+    li {
+      background: $projectColor;
+      border: 1px solid adjust-lightness($projectColor, -20);
+      color: white;
+      margin: 5px;
+      padding: 5px;
+    }
+  }
+}
