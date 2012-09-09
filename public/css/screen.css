@@ -67,21 +67,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 10, ../../sass/screen.scss */
+/* line 11, ../../sass/screen.scss */
 section {
   width: 50%;
   float: left;
 }
-/* line 13, ../../sass/screen.scss */
+/* line 14, ../../sass/screen.scss */
 section ul {
   border: 1px solid grey;
   min-height: 300px;
 }
-/* line 16, ../../sass/screen.scss */
+/* line 17, ../../sass/screen.scss */
 section ul li {
-  background: #7baacc;
-  border: 1px solid #3f78a2;
   color: white;
   margin: 5px;
   padding: 5px;
+}
+/* line 18, ../../sass/screen.scss */
+section ul li.project {
+  background: #7baacc;
+  border: 1px solid #3f78a2;
+}
+/* line 22, ../../sass/screen.scss */
+section ul li.task {
+  background: #adbfcd;
+  border: 1px solid #6e8ea6;
 }

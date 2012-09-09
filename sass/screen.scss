@@ -6,6 +6,7 @@
 @import "compass/reset";
 
 $projectColor: hsl(205, 44%, 64%);
+$taskColor: adjust-lightness(adjust-saturation($projectColor, -20%), 10%);
 
 section { 
   width: 50%;
@@ -14,8 +15,14 @@ section {
     border: 1px solid grey;
     min-height: 300px;
     li {
-      background: $projectColor;
-      border: 1px solid adjust-lightness($projectColor, -20);
+      &.project {
+        background: $projectColor;
+        border: 1px solid adjust-lightness($projectColor, -20);
+      }
+      &.task {
+        background: $taskColor;
+        border: 1px solid adjust-lightness($taskColor, -20);
+      }
       color: white;
       margin: 5px;
       padding: 5px;

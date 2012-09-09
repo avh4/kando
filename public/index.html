@@ -19,7 +19,7 @@
         <button ng-click="addProject()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="project in projects" ng-click="showProjectDetail(project)">{{ project.name }}</li>
+        <li class="project" ng-repeat="project in projects" ng-click="showProjectDetail(project)">{{ project.name }}</li>
       </ul>
     </section>
     <section id="tasks">
@@ -29,7 +29,7 @@
         <button ng-click="addTask()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="task in selectedProject.tasks">{{ task.description }}</li>
+        <li class="task" ng-repeat="task in selectedProject.tasks">{{ task.description }}</li>
       </ul>
     </section>
   </body>
