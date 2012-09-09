@@ -1,18 +1,14 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="kandoModule">
   <head>
 
     <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
     <script src="js/controllers.js"></script>
-
-    <!-- testing -->
-    <script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
-    <script src="js/test/unit/controllersSpec.js"></script>
   </head>
-  <body ng-controller="ProjectsController">
-    <section id="projects">
+  <body>
+    <section id="projects" ng-controller="ProjectsController">
       <h1>Projects</h1>
       <form>
         <input type="text" ng-model="newProject.name" autofocus="true"/>
@@ -22,14 +18,14 @@
         <li class="project" ng-repeat="project in projects" ng-click="showProjectDetail(project)">{{ project.name }}</li>
       </ul>
     </section>
-    <section id="tasks">
-      <h1>Tasks for <strong>{{ selectedProject.name }}</strong></h1>
+    <section id="tasks" ng-controller="TasksController">
+      <h1>Tasks for <strong>{{ project.name }}</strong></h1>
       <form>
         <input type="text" ng-model="newTask.description"/>
         <button ng-click="addTask()">Add</button>
       </form>
       <ul>
-        <li class="task" ng-repeat="task in selectedProject.tasks">{{ task.description }}</li>
+        <li class="task" ng-repeat="task in project.tasks">{{ task.description }}</li>
       </ul>
     </section>
   </body>

@@ -1,10 +1,11 @@
-describe('ProjectsController', function(){
 
+describe('ProjectsController', function(){
   var scope, ctrl;
 
   beforeEach(function() {
     scope = {};
-    ctrl = new ProjectsController(scope);
+    state = jasmine.createSpyObj("state", ["setSelectedProject"]);
+    ctrl = new ProjectsController(scope, state);
   });
 
   it('should start with no projects', function() {
@@ -29,36 +30,55 @@ describe('ProjectsController', function(){
       expect(scope.newProject.name).toBeUndefined();
     });
 
-    it('should show the project detail for the new project', function() {
-      expect(scope.selectedProject.name).toBe("Learn to draw");
-    })
+    it('should update the selection state', function() {
+      expect(state.setSelectedProject).toHaveBeenCalled();
+    });
   });
 
   describe('selecting a project', function() {
+    var hunting = {name: "Go hunting"};
     beforeEach(function() {
-      scope.projects = [{"name": "Go hunting" }, {"name": "Kiss in the rain"}];
-      scope.showProjectDetail(projects[0]);
+      scope.showProjectDetail(hunting);
+    });
+
+    it('should update the selection state', function() {
+      expect(state.setSelectedProject).toHaveBeenCalledWith(hunting);
+    });
+  });
+});
+
+describe('TasksController', function () {
+  var scope, ctrl, project;
+
+  beforeEach(inject(function($rootScope) {
+    scope = $rootScope.$new();
+    project = {"name": "Go fishing", tasks:[]};
+    ctrl = new TasksController(scope);
+  }));
+
+  describe('when a project is selected', function() {
+    beforeEach(function() {
+      scope.$broadcast("selectedProjectChanged", project);
     });
 
     it('should show the project detail for the selected project', function() {
-      expect(scope.selectedProject).toBe(projects[0]);
+      expect(scope.project).toBe(project);
     });
   });
 
   describe('adding a task', function() {
     beforeEach(function() {
-      scope.newProject = {"name": "Go fishing"};
-      scope.addProject();
+      scope.$broadcast("selectedProjectChanged", project);
       scope.newTask = {"description": "Hang sign on door"};
       scope.addTask();
     });
 
     it('should add the task to the selected project', function() {
-      expect(scope.selectedProject.tasks.length).toBe(1);
+      expect(scope.project.tasks.length).toBe(1);
     });
 
     it('should give the new task the entered description', function() {
-      expect(scope.selectedProject.tasks[0].description).toBe("Hang sign on door");
+      expect(scope.project.tasks[0].description).toBe("Hang sign on door");
     });
 
     it('should reset the add form', function() {
