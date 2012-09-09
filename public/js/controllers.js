@@ -1,7 +1,8 @@
 function ProjectsController($scope) {
-  $scope.projects = [
-	{"name": "Buy car"},
-	{"name": "Clean house"},
-	{"name": "Pay taxes"},
-  ];
+  $scope.projects = [];
+
+  $scope.add = function() {
+    $scope.projects.push({ "name": $scope.newProject.name });
+    $scope.newProject = {};
+  }
 }

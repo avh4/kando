@@ -3,10 +3,18 @@
   <head>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
     <script src="js/controllers.js"></script>
+
+    <!-- testing -->
+    <script type="text/javascript" src="http://searls.github.com/jasmine-all/jasmine-all-min.js"></script>
+    <script src="js/test/unit/controllersSpec.js"></script>
   </head>
   <body>
     <section ng-controller="ProjectsController">
       <h1>Projects</h1>
+      <form>
+        <input type="text" ng-model="newProject.name" autofocus="true"/>
+        <button ng-click="add()">Add</button>
+      </form>
       <ul>
         <li ng-repeat="project in projects">{{ project.name }}</li>
       </ul>
